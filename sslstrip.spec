@@ -3,7 +3,7 @@ Name:           sslstrip
 Version:        0.9
 Release:        %mkrel 1
 Summary:        Tool that provides a demonstration of HTTPS stripping attacks
-Group:          Applications/Internet
+Group:          System/Servers
 License:        GPLv3+
 URL:            http://www.thoughtcrime.org/software/sslstrip/
 Source0:        http://www.thoughtcrime.org/software/sslstrip/%{name}-%{version}.tar.gz
