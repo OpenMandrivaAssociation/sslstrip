@@ -1,21 +1,16 @@
 %{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
 Name:           sslstrip
 Version:        0.9
-Release:        %mkrel 1
+Release:        %mkrel 2
 Summary:        Tool that provides a demonstration of HTTPS stripping attacks
-Group:          System/Servers
+Group:          Monitoring
 License:        GPLv3+
 URL:            http://www.thoughtcrime.org/software/sslstrip/
 Source0:        http://www.thoughtcrime.org/software/sslstrip/%{name}-%{version}.tar.gz
-#Patch0:         sslstrip0.7-version_num.patch
-#Patch1:         sslstrip0.7-version_num-setuppy.patch
-
-BuildRoot:      %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
-
-BuildArch:      noarch
-
 BuildRequires:  python >= 2.5
 Requires:       python-twisted-web
+BuildArch:      noarch
+BuildRoot:      %{_tmppath}/%{name}-%{version}
 
 %description
 Tool that provides a demonstration of HTTPS stripping attacks that were 
@@ -28,11 +23,6 @@ selective logging, and session denial
 %prep
 %setup -q
 
-# Patch out the incorrect version in both the setup.py and main source file
-##fixed in 0.9 upstream release
-#patch0
-#patch1
-
 # Make COPYING and README not executable
 chmod -x COPYING
 chmod -x README
@@ -41,16 +31,14 @@ chmod -x README
 python setup.py build
 
 %install
-python setup.py install --root $RPM_BUILD_ROOT
+python setup.py install --root %{buildroot}
 
 # Remove duplicate doc files
-rm $RPM_BUILD_ROOT/usr/share/%{name}/README
-rm $RPM_BUILD_ROOT/usr/share/%{name}/COPYING
-
+rm %{buildroot}/usr/share/%{name}/README
+rm %{buildroot}/usr/share/%{name}/COPYING
 
 %clean
-rm -rf $RPM_BUILD_ROOT
-
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
