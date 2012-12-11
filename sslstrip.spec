@@ -51,3 +51,16 @@ rm -rf %{buildroot}
 %{_datadir}/%{name}/*
 %{_bindir}/%{name}
 
+
+
+%changelog
+* Thu Jul 07 2011 Guillaume Rousse <guillomovitch@mandriva.org> 0.9-2mdv2011
++ Revision: 689085
+- switch group to monitoring, as other security-related tools
+- spec cleanup
+
+* Sat Jul 02 2011 Luis Daniel Lucio Quiroz <dlucio@mandriva.org> 0.9-1
++ Revision: 688563
+- first import from fedoras
+- import sslstrip
+
