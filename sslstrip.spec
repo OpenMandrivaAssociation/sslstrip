@@ -1,7 +1,7 @@
 %{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
 Name:           sslstrip
 Version:        0.9
-Release:        %mkrel 2
+Release:        3
 Summary:        Tool that provides a demonstration of HTTPS stripping attacks
 Group:          Monitoring
 License:        GPLv3+
