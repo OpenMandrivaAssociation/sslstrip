@@ -5,7 +5,7 @@ Release:        3
 Summary:        Tool that provides a demonstration of HTTPS stripping attacks
 Group:          Monitoring
 License:        GPLv3+
-URL:            http://www.thoughtcrime.org/software/sslstrip/
+URL:            https://www.thoughtcrime.org/software/sslstrip/
 Source0:        http://www.thoughtcrime.org/software/sslstrip/%{name}-%{version}.tar.gz
 BuildRequires:  python >= 2.5
 Requires:       python-twisted-web
